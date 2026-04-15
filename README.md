@@ -63,6 +63,7 @@ Troubleshooting
 - Figure/Table Saving Errors: Ensure you have write permissions for the folder where the script is saved. Avoid special characters in the folder path.
 Reference
 Replication of: Joint Impact of Sleep and Physical Activity on Hypertension.
+## DOIReplication materials are archived on Zenodo with DOI: 10.5281/zenodo.19597111Citation: wendy731. (2026). wendy731/CHARLS: First release for hypertension study replication materials (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.19597111
 Data Source: CHARLS (China Health and Retirement Longitudinal Study) - Joint Impact CHARLS.xlsx (cleaned dataset, shared as part of replication materials).
 Contact
 For questions or issues with the replication code, please open an issue in this GitHub repository.
