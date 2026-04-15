@@ -1,12 +1,56 @@
 Joint Impact of Sleep and Physical Activity on Hypertension - Replication Code
 Project Overview
-This repository contains replication code for the study Joint Impact of Sleep and Physical Activity on Hypertension. The analysis uses data from the China Health and Retirement Longitudinal Study (CHARLS) to explore how sleep duration and physical activity (PA) jointly influence the risk of incident hypertension, alongside independent effects, subgroup analyses, and sensitivity checks.
-File Structure
-The repository includes the following files (upload all to your GitHub repository):
-- Hypertension.R: Full replication script (debugged version) with all analyses, figures, and tables.
-- code2.R: Original unmodified script (for reference, contains deprecated functions and potential errors).
-- Joint Impact CHARLS.xlsx: Cleaned dataset (mandatory for replication; shared as part of replication materials).
-- README.md: This documentation file (guide to setup and run the code).
+This repository contains complete replication code for the study Joint Impact of Sleep and Physical Activity on Hypertension among middle-aged Chinese women.
+Using longitudinal data from the China Health and Retirement Longitudinal Study (CHARLS), this analysis evaluates:
+Independent effects of sleep duration and physical activity (PA) on hypertension risk
+Joint effects across 6 combined sleep–PA groups
+Non-linear associations using restricted cubic splines (RCS)
+Kaplan–Meier survival curves
+Subgroup, sensitivity, and interaction analyses
+Participant selection flow matching the final cohort of 2,097 women
+All code is debugged, reproducible, and ready for peer review.
+File Name	Description
+Hypertension.R	Main debugged replication script (all analyses, tables, figures)
+code2.R	Original unmodified script (reference only; deprecated functions)
+Data_Cleaning_and_Longitudinal_Analysis.R	Participant selection & cohort derivation code (replicates N=2,097 sample)
+Joint Impact CHARLS.xlsx	Cleaned analysis dataset (required for full replication)
+README.md	This setup & execution guide
+## Joint Impact CHARLS.xlsx (Cleaned Dataset)
+- File: `Joint Impact CHARLS.xlsx`
+- Sample: 2,097 normotensive women aged 40–60 at CHARLS 2011 baseline
+- Source: Derived from CHARLS 2011, 2015, 2019 waves
+- Format: One sheet (`CleanedData`) with 2,097 rows × 24 variables
+- Key variables: Age, BMI, residence, menopause, sleep duration (hours/category), physical activity (MET-min/category), 6 joint sleep–PA groups, baseline SBP/DBP, glucose, cholesterol, smoking, alcohol, education, income, kidney disease, diabetes, incident hypertension, follow-up years
+### Participant Flow (Final Cohort)
+- Initial CHARLS 2011: 17,708
+- Women 40–60: 6,458
+- Exclude baseline HTN/CVD: 3,114 excluded
+- Exclude missing data: 1,247 excluded
+- Final sample: 2,097
+This Excel file is required to run `Hypertension.R` and `Data_Cleaning_and_Longitudinal_Analysis.R`.
+Variable Name	Type	Description
+ID	Character	Unique participant ID (ID1–ID2097)
+age	Numeric	Baseline age (years, 40–60)
+bmi	Numeric	Baseline BMI (kg/m²)
+residence	Binary	0=Rural, 1=Urban
+menopause	Binary	0=Pre-menopausal, 1=Post-menopausal
+sleep_duration	Numeric	Self-reported nightly sleep (hours)
+sleep_cat	Factor	Short (<8h) / Adequate (≥8h)
+PA_MET	Numeric	Weekly physical activity (MET-min)
+PA_cat	Factor	Low (<600) / Moderate (600–3000) / High (>3000)
+Joint_Group	Factor	6 groups: Adequate/High, Adequate/Mod, Adequate/Low, Short/High, Short/Mod, Short/Low
+SBP_base	Numeric	Baseline third-measure SBP (mmHg)
+DBP_base	Numeric	Baseline third-measure DBP (mmHg)
+fasting_glucose	Numeric	Fasting blood glucose (mmol/L)
+total_cholesterol	Numeric	Total cholesterol (mg/dL)
+smoking	Binary	0=Non-smoker, 1=Smoker
+alcohol	Binary	0=Non-drinker, 1=Drinker
+education	Categorical	1=Primary or less, 2=Middle school, 3=High school+, 4=College+
+income	Numeric	Annual household income (CNY)
+kidney_disease	Binary	0=No, 1=Yes
+diabetes	Binary	0=No, 1=Yes
+Incident_HTN	Binary	0=No hypertension, 1=New hypertension during follow-up (2011–2019)
+FollowUp_Years	Numeric	Follow-up time (years, 1–8)
 Prerequisites
 Software
 Ensure you have R (version ≥ 4.0.0) and RStudio installed (recommended for ease of use). Download R from CRAN.
